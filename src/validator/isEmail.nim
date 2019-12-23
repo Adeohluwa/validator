@@ -7,10 +7,13 @@ import sequtils
 
 
 
-#let underMaxLength = 64
+let underMaxLength = (text: string) => text.len() < 255
 let hasAtSign = (text: string) => text.contains "@"
 
 let excludeInvalidSymbols = (text: string) => not text.contains {'&','=','\'','+','<','>','-','/','\\',' '}
+
+let noWhiteSpaces = (text: string) => not text.contains Whitespace and not text.contains
+Newline
 
 let domains = re"@[A-Za-z]+\.[A-Za-z]+"
 
@@ -28,7 +31,9 @@ proc isEmail*(entry: string): bool =
   if entry.hasAtSign:
     if entry.hasDomain:
       if entry.excludeInvalidSymbols:
-        if entry.noDoubleDots:
-          if entry.notStartWithNumbers:
-            return true
+        if entry.noWhiteSpaces:
+          if entry.noDoubleDots:
+            if entry.notStartWithNumbers:
+	      if entry.underMaxLength:
+                return true
   return false
