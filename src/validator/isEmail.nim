@@ -1,5 +1,6 @@
 import re
 import sugar
+import cascade
 import strutils
 import sequtils
 
@@ -8,12 +9,12 @@ import sequtils
 
 
 let underMaxLength = (text: string) => text.len() < 255
+
 let hasAtSign = (text: string) => text.contains "@"
 
 let excludeInvalidSymbols = (text: string) => not text.contains {'&','=','\'','+','<','>','-','/','\\',' '}
 
-let noWhiteSpaces = (text: string) => not text.contains Whitespace and not text.contains
-Newline
+let noWhiteSpaces = (text: string) => not text.contains Whitespace + Newlines
 
 let domains = re"@[A-Za-z]+\.[A-Za-z]+"
 
@@ -34,6 +35,6 @@ proc isEmail*(entry: string): bool =
         if entry.noWhiteSpaces:
           if entry.noDoubleDots:
             if entry.notStartWithNumbers:
-	      if entry.underMaxLength:
+              if entry.underMaxLength:
                 return true
   return false
