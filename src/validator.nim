@@ -1,13 +1,11 @@
-import validator/[isEmail]
+import validator/[isEmail,isCreditCard]
 
 # [
-#isEmail
 #isIP
 #isISBN
 #isPhone
 #isDate
 #isCurrency
-#isCreditCard
 #isEmpty
 #isHash
 #isJson
@@ -16,8 +14,9 @@ import validator/[isEmail]
 #isPort
 #isUrl
 #isPostalCode
-#
+#isMD5
 # ]#
 
 
 export isEmail
+export isCreditCard
