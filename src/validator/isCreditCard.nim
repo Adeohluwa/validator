@@ -30,12 +30,3 @@ let testCard = (text: string) => text.mastercard or text.visa or text.americanEx
 
 
 proc isCreditCard*(entry: string): bool = entry.testCard()
-
-
-
-when defined(test):
-  assert isCreditCard("5555444455554444") == true
-  assert isCreditCard("378282246310005")  == true
-  assert isCreditCard("4242424242424242") == true
-  assert isCreditCard("6011111111111117") == true
-  echo "Tests Successful"
