@@ -1,5 +1,13 @@
-# validator
+# Validator
 This library provides several functions to validate real world data types
+
+
+
+## Tests
+```bash
+$ nimble test
+```
+
 
 Validators            |     Description
 ----------------------|-------------------------
