@@ -1,5 +1,5 @@
 import unittest
-import "../src/validator/isCreditCard.nim"
+import validator/isCreditCard
 
 
 

@@ -1,5 +1,5 @@
 import unittest
-import "../src/validator/isEmail.nim"
+import validator/isEmail
 
 
 
@@ -24,4 +24,3 @@ suite "Email validation rules":
     check isEmail("a dejumoadeoluwa@gmail.com")   == false
     check isEmail("a\ndejumoadeoluwa@gmail.com")  == false
     check isEmail("a\tdejumoadeoluwa@gmail.com")  == false
-
