@@ -39,13 +39,3 @@ let allChecksPassed = (text: string) => text.hasOneAtSign and text.hasDomain and
 
 
 proc isEmail*(entry: string): bool  = entry.allChecksPassed()
-
-
-
-when defined(test):
-  assert isEmail("adejumoadeoluwa@gmail.com")   == true
-  assert isEmail("9adejumoadeoluwa@gmail.com")  == false
-  assert isEmail("a.dejumoadeoluwa@gmail.com")  == true
-  assert isEmail("adejumoadeoluwagmail.com")    == false
-  assert isEmail("adejumoadeoluwa@~~~~.com")    == false
-  echo "Tests Successful"
