@@ -9,21 +9,21 @@ let (mcs, amex, vs, dsc, jc, dns, mst) = patterns
 
 
 
-let exists = (matches: seq[string]) => matches.len() != 0
+let mastercard = (card: string) => card.match(mcs)
 
-let mastercard = (card: string) => card.findAll(mcs).exists
+let americanExpress = (card: string) => card.match(amex)
 
-let americanExpress = (card: string) => card.findAll(amex).exists
+let visa = (card: string) => card.match(vs)
 
-let visa = (card: string) => card.findAll(vs).exists
+let discover = (card: string) => card.match(dsc)
 
-let discover = (card: string) => card.findAll(dsc).exists
+let JCB = (card: string) => card.match(jc)
 
-let JCB = (card: string) => card.findAll(jc).exists
+let diners = (card: string) => card.match(dns)
 
-let diners = (card: string) => card.findAll(dns).exists
+let maestro = (card: string) => card.match(mst)
 
-let maestro = (card: string) => card.findAll(mst).exists
+
 
 let testCard = (card: string) => card.mastercard or card.visa or card.americanExpress or card.discover or card.JCB or card.diners or card.maestro
 
