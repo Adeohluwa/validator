@@ -1,4 +1,8 @@
 # Validator
+
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
+[![Build Status](https://travis-ci.org/Adeohluwa/validator.svg?branch=master)](https://travis-ci.org/Adeohluwa/validator)
+
 This library provides several functions to validate real world data types
 
 
