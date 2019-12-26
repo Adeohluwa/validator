@@ -5,7 +5,10 @@
 
 This library provides several functions to validate real world data types
 
-
+## Installation
+```bash
+$ nimble install validator
+```
 
 ## Tests
 ```bash
