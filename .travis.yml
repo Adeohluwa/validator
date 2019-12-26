@@ -1,0 +1,28 @@
+os:
+  - linux
+dist: trusty
+
+language: c
+
+cache:
+  directories:
+    - "$HOME/.choosenim"
+
+install:
+  - export CHOOSENIM_CHOOSE_VERSION="0.18.0"
+  - |
+      curl https://nim-lang.org/choosenim/init.sh -sSf > init.sh
+      sh init.sh -y
+  - export PATH=$HOME/.nimble/bin:$PATH
+
+before_script:
+  - set -e
+  - set -x
+
+script:
+  - git clone https://github.com/Adeohluwa/validator.git
+  - cd validator
+  - nimble test
+
+notifications:
+  email: false # noisy
