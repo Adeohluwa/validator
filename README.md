@@ -9,7 +9,7 @@ $ nimble test
 ```
 
 
-Validators            |     Description
-----------------------|-------------------------
-isEmail(text: **string**): **bool**              | Check if string is an email address.
-isCreditCard(text: **string**): **bool**         | Check if string is a valid credit card number.
+Validators            |     Description         |     Sub functions
+----------------------|-------------------------|------------------------------------------------------------
+isEmail(text: **string**): **bool**              | Check if string is an email address. |   gmail,outlook,yahoo,icloud,qq
+isCreditCard(text: **string**): **bool**         | Check if string is a valid credit card number.| mastercard,americanExpress,visa,JCB, diners, maestro
