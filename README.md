@@ -19,5 +19,6 @@ $ nimble test
 
 Validators            |     Description         |     Sub functions
 ----------------------|-------------------------|------------------------------------------------------------
-isEmail(text: **string**): **bool**              | Check if string is an email address. |   gmail,outlook,yahoo,icloud,qq
-isCreditCard(text: **string**): **bool**         | Check if string is a valid credit card number.| mastercard,americanExpress,visa,JCB, diners, maestro
+isEmail(text: **string**): **bool**              | Check if string is an email address. |   isGmail,isOutlook,isYahoo,isiCloud,isQq
+isCreditCard(text: **string**): **bool** | Check if string is a valid credit card number.| isMastercard,isAmericanExpress,isVisa,isJCB, isDiners, isMaestro
+isIP(text: **string**): **bool** | Check if string is an IP address.| isIPv4,isIPv6
