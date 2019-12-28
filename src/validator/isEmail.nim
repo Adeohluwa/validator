@@ -44,5 +44,4 @@ let excludeInvalidSymbols = (mail: string) => not mail.contains {'&','=','\'','<
 
 
 
-
-let isEmail* = (mail: string) => mail.hasOneAtSign and mail.hasDomain and mail.hasDisplay and mail.display.isValidDisplay and mail.excludeInvalidSymbols and mail.noWhiteSpaces and mail.noDoubleDots and mail.notStartWithNumbers and mail.underMaxLength
+proc isEmail*(mail: string): bool = mail.hasOneAtSign and mail.hasDomain and mail.hasDisplay and mail.display.isValidDisplay and mail.excludeInvalidSymbols and mail.noWhiteSpaces and mail.noDoubleDots and mail.notStartWithNumbers and mail.underMaxLength
