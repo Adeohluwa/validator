@@ -6,52 +6,43 @@ import strutils
 
 
 # Validation Rules 
-# More coming...
 
-let underMaxLength = (text: string) => text.len() < 255
+let underMaxLength = (mail: string) => mail.len() < 255
 
-let noDoubleDots = (text: string) => not text.contains ".."
+let noDoubleDots = (mail: string) => not mail.contains ".."
 
-let noWhiteSpaces = (text: string) => not text.contains Whitespace + Newlines
+let noWhiteSpaces = (mail: string) => not mail.contains Whitespace + Newlines
 
 let username = re"@[A-Za-z][A-Za-z0-9_\.]+"
 
-let display = (text: string) => text.findAll(username)[0]
+let display = (mail: string) => mail.findAll(username)[0]
 
-let hasDisplay = (text: string) => len(display(text)) != 0
+let hasDisplay = (mail: string) => len(display(mail)) != 0
 
-let isValidDisplay = (text: string) => not text.display.contains {'-'}
+let isValidDisplay = (mail: string) => not mail.display.contains {'-'}
 
 let domain = re"@[A-Za-z][A-Za-z0-9\-]+\.[A-Za-z]+"
 
-let hasDomain = (text: string) => text.findAll(domain).len() != 0
+let hasDomain = (mail: string) => mail.findAll(domain).len() != 0
 
-let getDomain = (text: string) => text.findAll(domain)[0]
+let getDomain = (mail: string) => mail.findAll(domain)[0]
 
-let hasOneAtSign = (text: string) => text.contains("@") and text.count("@") == 1
+let hasOneAtSign = (mail: string) => mail.contains("@") and mail.count("@") == 1
 
-let notStartWithNumbers = (text: string) => text[0] notin {'0'..'9'}
+let notStartWithNumbers = (mail: string) => mail[0] notin {'0'..'9'}
 
-let excludeInvalidSymbols = (text: string) => not text.contains {'&','=','\'','<','>','/','\\'}
+let excludeInvalidSymbols = (mail: string) => not mail.contains {'&','=','\'','<','>','/','\\'}
 
 
 # Expose functions to detect Gmail | Outlook | QQ ...
-#let gmail* = (mail: string) => isEmail(mail) and mail.getDomain.match()
-#let outlook*
-#let yahoo*
-#let icloud*
-#let qq*
-#let neatease*
-#let sina*
+#let isGmail*(mail: string) => mail.isEmail and mail.getDomain.match(re"gmail.com")
+#let isOutlook*(mail: string) => mail.isEmail and mail.getDomain.match(re"")
+#let isYahoo*(mail: string) => mail.isEmail and mail.getDomain.match(re"@yahoo.com")
+#let isiCloud*(mail: string) => mail.isEmail and mail.getDomain.match(re"@icloud.com")
+#let isQq* = (mail: string) => mail.isEmail and mail.getDomain.match(re"@qq.com")
 
 
 
 
 
-
-let allChecksPassed = (text: string) => text.hasOneAtSign and text.hasDomain and text.hasDisplay and text.display.isValidDisplay and text.excludeInvalidSymbols and text.noWhiteSpaces and text.noDoubleDots and text.notStartWithNumbers and text.underMaxLength
-
-
-
-
-proc isEmail*(entry: string): bool  = entry.allChecksPassed()
+proc isEmail(mail: string): bool = mail.hasOneAtSign and mail.hasDomain and mail.hasDisplay and mail.display.isValidDisplay and mail.excludeInvalidSymbols and mail.noWhiteSpaces and mail.noDoubleDots and mail.notStartWithNumbers and mail.underMaxLength
