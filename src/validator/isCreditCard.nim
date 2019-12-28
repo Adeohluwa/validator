@@ -9,23 +9,23 @@ let (mcs, amex, vs, dsc, jc, dns, mst) = patterns
 
 
 
-let mastercard = (card: string) => card.match(mcs)
+let isMastercard* = (card: string) => card.match(mcs)
 
-let americanExpress = (card: string) => card.match(amex)
+let isAmericanExpress* = (card: string) => card.match(amex)
 
-let visa = (card: string) => card.match(vs)
+let isVisa* = (card: string) => card.match(vs)
 
-let discover = (card: string) => card.match(dsc)
+let isDiscover* = (card: string) => card.match(dsc)
 
-let JCB = (card: string) => card.match(jc)
+let isJCB* = (card: string) => card.match(jc)
 
-let diners = (card: string) => card.match(dns)
+let isDiners* = (card: string) => card.match(dns)
 
-let maestro = (card: string) => card.match(mst)
+let isMaestro* = (card: string) => card.match(mst)
 
 
 
-let testCard = (card: string) => card.mastercard or card.visa or card.americanExpress or card.discover or card.JCB or card.diners or card.maestro
+let testCard = (card: string) => card.isMastercard or card.isVisa or card.isAmericanExpress or card.isDiscover or card.isJCB or card.isDiners or card.isMaestro
 
 
 
