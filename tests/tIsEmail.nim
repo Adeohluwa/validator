@@ -33,3 +33,11 @@ suite "Email validation rules":
     check isEmail("a dejumoadeoluwa@gmail.com")         == false
     check isEmail("a\ndejumoadeoluwa@gmail.com")        == false
     check isEmail("a\tdejumoadeoluwa@gmail.com")        == false
+
+
+  test "Detect several email providers":
+    check isGmail("adejumoadeoluwa@gmail.com")          == true
+    check isYahoo("adejumoadeoluwa@yahoo.com")          == true
+    check isOutlook("adejumoadeoluwa@outlook.com")      == true
+    check isIcloud("adejumoadeoluwa@icloud.com")        == true
+    check isQQ("adejumoadeoluwa@qq.com")                == true
