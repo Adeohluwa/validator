@@ -34,12 +34,17 @@ let notStartWithNumbers = (mail: string) => mail[0] notin {'0'..'9'}
 let excludeInvalidSymbols = (mail: string) => not mail.contains {'&','=','\'','<','>','/','\\'}
 
 
-# Expose functions to detect Gmail | Outlook | QQ ...
-#let isGmail*(mail: string) => mail.isEmail and mail.getDomain.match(re"gmail.com")
-#let isOutlook*(mail: string) => mail.isEmail and mail.getDomain.match(re"")
-#let isYahoo*(mail: string) => mail.isEmail and mail.getDomain.match(re"@yahoo.com")
-#let isiCloud*(mail: string) => mail.isEmail and mail.getDomain.match(re"@icloud.com")
-#let isQq* = (mail: string) => mail.isEmail and mail.getDomain.match(re"@qq.com")
+
+proc isEmail*(mail: string): bool
+
+
+
+# Functions to detect Gmail | Outlook | QQ ...
+let isGmail* = (mail: string) => mail.isEmail() and mail.match(re".+@gmail.com")
+let isYahoo* = (mail: string) => mail.isEmail() and mail.match(re".+@yahoo.com")
+let isOutlook* = (mail: string) => mail.isEmail() and mail.match(re".+@outlook.com")
+let isiCloud* = (mail: string) => mail.isEmail() and mail.match(re".+@icloud.com")
+let isQq* = (mail: string) => mail.isEmail() and mail.match(re".+@qq.com")
 
 
 
