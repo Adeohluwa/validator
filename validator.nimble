@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.1.0"
+version       = "0.2.0"
 author        = "Adeoluwa Adejumo"
 description   = "This library provides several functions to validate real world data types"
 license       = "MIT"
